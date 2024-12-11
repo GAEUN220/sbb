@@ -55,4 +55,10 @@ class SbbApplicationTests {
         assertEquals(1, q.getId());
     }
 
+    @Test
+    void testJpa5() {
+        Question q = this.questionRepository.findBySubjectAndContent("sbb가 무엇인가요?", "sbb에 대해 알고 싶습니다.");
+        assertEquals(1, q.getId());
+    }
+
 }
