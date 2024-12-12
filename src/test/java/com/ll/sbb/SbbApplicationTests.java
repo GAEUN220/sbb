@@ -1,6 +1,9 @@
 package com.ll.sbb;
 
-import jakarta.transaction.TransactionScoped;
+import com.ll.sbb.answer.Answer;
+import com.ll.sbb.answer.AnswerRepository;
+import com.ll.sbb.question.Question;
+import com.ll.sbb.question.QuestionRepository;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
