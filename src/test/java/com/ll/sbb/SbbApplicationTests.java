@@ -1,5 +1,7 @@
 package com.ll.sbb;
 
+import jakarta.transaction.TransactionScoped;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -94,4 +96,14 @@ class SbbApplicationTests {
         a.setCreateDate(LocalDateTime.now());
         this.answerRepository.save(a);
     }
+
+    @Test
+    void testJpa10() {
+        Optional<Answer> oa = this.answerRepository.findById(1);
+        assertTrue(oa.isPresent());
+        Answer a = oa.get();
+        assertEquals(2, a.getQuestion().getId());
+    }
+
+
 }
