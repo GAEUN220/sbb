@@ -105,5 +105,16 @@ class SbbApplicationTests {
         assertEquals(2, a.getQuestion().getId());
     }
 
+    @Transactional
+    @Test
+    void testJpa11() {
+        Optional<Question> oq = this.questionRepository.findById(2);
+        assertTrue(oq.isPresent());
+        Question q = oq.get();
 
+        List<Answer> answerList = q.getAnswerList();
+
+        assertEquals(1, answerList.size());
+        assertEquals("네 자동으로 생성됩니다.", answerList.get(0).getContent());
+    }
 }
